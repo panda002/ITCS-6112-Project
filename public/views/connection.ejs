@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Connection</title>
+<body>
+<% if(user == undefined) { %>
+    <%- include('partials/header_notloggedin.ejs'); -%>
+<% } else { %>
+<%- include('partials/header_loggedin'); -%>
+<h6 class="col-6"> Welcome Back!! <%=user %></h6>
+<% } %>
+<div id="container">
+    <div id="main">
+<div class="container pt-5">
+    <div class="text-center">
+                <img class="float-left" src="/assets/images/img2.jpg" alt="image" width="150" height="150">
+        <div class="row">
+            <div class="col-md-4 pl-lg-5">
+                <h1>Event Details</h1>
+                <p></p>
+                <% connection.forEach(element => { %>
+                <p>Hosted By: <br><strong><%= element.userID %></strong>
+                    <br>Topic:   <%= element.topic %>
+                    <br>Details:   <%= element.details %>
+                    <br>Where:    <%= element.where %>
+                    <br>Date:   <%= element.when %>
+                    <br>From:   <%= element.start_time %>  to   <%= element.end_time %>
+                </p>
+            </div>
+            <div class="col-md-4 pt-5">
+                <h5>Are You Going? </h5>
+                    <form class="inline-form" action="/user/rsvp" method="POST">
+                        <input type="text" class="form-control"  name="rsvp" value="Yes" hidden>
+                        <input type="text" class="form-control"  name="eventID" value ="<%= element.eventID %>" hidden>
+                        <button type="submit" class="btn btn-info bg-success">Yes</button>
+                    </form>
+                    <form class="inline-form p-1" action="/user/rsvp" method="POST">
+                        <input type="text" class="form-control"  name="rsvp" value="No" hidden>
+                        <input type="text" class="form-control"  name="eventID" value ="<%= element.eventID %>" hidden>
+                        <button type="submit" class="btn btn-info bg-danger">No</button>
+                    </form>
+                    <form class="inline-form" action="/user/rsvp" method="POST">
+                        <input type="text" class="form-control"  name="rsvp" value="Maybe" hidden>
+                        <input type="text" class="form-control"  name="eventID" value ="<%= element.eventID %>" hidden>
+                        <button type="submit" class="btn btn-info bg-secondary">MayBe?</button>
+                    </form>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+    <%- include('partials/footer.ejs'); %>
+</body>
+</html>

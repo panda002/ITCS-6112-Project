@@ -1,0 +1,120 @@
+use Connections;
+db.connectiondetails.drop()
+db.createCollection('connectiondetails');
+db.userdetails.drop()
+db.createCollection('userdetails');
+db.userprofiles.drop()
+db.createCollection('userprofiles');
+
+db.userdetails.insert({
+    "nickname": "007",
+    "firstName": "Sidharth",
+    "lastName": "Panda",
+    "emailID": "spanda3@uncc.edu",
+    "password": "123456"
+});
+
+db.connectiondetails.insertMany([
+          {
+                 "eventID": "277fc5c5-3c46-47b4-a07d-54448dae6825",
+                 "userID": "spanda3@uncc.edu",
+                 "topic": "Game",
+                 "name": "Enjoy Summer",
+                 "details": "Come and play NFS",
+                 "where": "Charlotte",
+                 "when": "21-05-2020",
+                 "start_time": "09:00",
+                 "end_time": "11:00"
+
+         },
+         {
+                 "eventID": "b5305ab0-517a-4e6c-b29b-a9c4574d2d60",
+                 "userID": "spanda3@uncc.edu",
+                 "topic": "Sports",
+                 "name": "Enjoy Summer",
+                 "details": "Come and play Badminton",
+                 "where": "Charlotte",
+                 "when": "21-05-2020",
+                 "start_time": "09:00",
+                 "end_time": "14:00"
+         },
+         {
+                 "eventID": "fba4050a-274a-4676-830b-dfafedb3a2ce",
+                 "userID": "sameer@uncc.edu",
+                 "topic": "Game",
+                 "name": "Enjoy Summer",
+                 "details": "Come and play Minecraft",
+                 "where": "Charlotte",
+                 "when": "21-05-2020",
+                 "start_time": "09:00",
+                 "end_time": "13:00"
+         },
+         {
+                 "eventID": "aa397b1c-2626-4ef2-822a-3e1d19d0f0a1",
+                 "userID": "aish@uncc.edu",
+                 "topic": "Dance",
+                 "name": "Enjoy Summer",
+                 "details": "Come and experience Salsa",
+                 "where": "Charlotte",
+                 "when": "21-05-2020",
+                 "start_time": "09:00",
+                 "end_time": "12:00"
+         },
+         {
+                  "eventID": "af58e913-6ea8-45d4-9991-01ffff1b436e",
+                  "userID": "akamble@uncc.edu",
+                  "topic": "Dance",
+                  "name": "Enjoy Summer",
+                  "details": "Come and Break-dance",
+                  "where": "Charlotte",
+                  "when": "21-02-2020",
+                  "start_time": "09:00",
+                  "end_time": "21:00"
+         },
+        {
+                  "eventID": "ba452d43-14a6-4e86-ab33-98a39eb97251",
+                  "userID": "akamble@uncc.edu",
+                  "topic": "Dance",
+                  "name": "Enjoy Spring",
+                  "details": "Come and experience hip-hop",
+                  "where": "Charlotte",
+                  "when": "22-02-2020",
+                  "start_time": "09:00",
+                  "end_time": "17:00"
+        },
+        {
+                  "eventID": "08514ce0-5521-4383-b279-284d92ae9a3f",
+                  "userID": "aish@uncc.edu",
+                  "topic": "Sports",
+                  "name": "Enjoy Summer",
+                  "details": "Come and play basketball",
+                  "where": "Charlotte",
+                  "when": "21-05-2020",
+                  "start_time": "09:00",
+                  "end_time": "16:00"
+        },
+        {
+                  "eventID": "27537416-da2a-4762-ae86-f1140e6363ec",
+                  "userID": "sameer@uncc.edu",
+                  "topic": "Sports",
+                  "name": "Enjoy Winter",
+                  "details": "Come and play football",
+                  "where": "Charlotte",
+                  "when": "21-05-2020",
+                  "start_time": "09:00",
+                  "end_time": "17:00"
+        }
+]);
+
+db.userprofiles.insertMany([
+    {
+        "userID": "spanda3@uncc.edu",
+        "eventID": "277fc5c5-3c46-47b4-a07d-54448dae6825",
+        "rsvp": "Yes"
+    },
+    {
+        "userID": "spanda3@uncc.edu",
+        "eventID": "b5305ab0-517a-4e6c-b29b-a9c4574d2d60",
+        "rsvp": "No"
+    }
+]);

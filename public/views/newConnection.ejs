@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>New Connections</title>
+<body>
+    <% if(user == undefined) { %>
+        <%- include('partials/header_notloggedin.ejs'); -%>
+    <% } else { %>
+    <%- include('partials/header_loggedin'); -%>
+    <h6 class="col-6"> Welcome Back!! <%= user %></h6>
+    <% } %>
+
+<div id="container">
+    <div id="main">
+        <div class="container border">
+            <h5>Welcome to New Connection Page</h5>
+            <form action="newConnection" method="POST">
+                <div class="form-group  mx-sm-5">
+                    <label for="topic">Topic:</label>
+                    <input type="text" class="form-control" id="topic" name="topic" placeholder="topic"
+                           value="<%= formData.topic %>" required>
+                    <% if (typeof error.topic !== 'undefined') { %>
+                        <p class="alert-danger"> <%= error.topic.msg %></p>
+                    <% } %>
+                </div>
+                <div class="form-group mx-sm-5">
+                    <label for="name">Event Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="name"
+                           value="<%= formData.name %>" required>
+                    <% if (error.name == undefined) { %>
+                    <% } else { %>
+                        <p class="alert-danger"> <%= error.name.msg %></p>
+                    <% } %>
+                </div>
+                <div class="form-group mx-sm-5">
+                    <label for="details">Details:</label>
+                    <input type="text" class="form-control" id="details" name="details" placeholder="details"
+                           value="<%= formData.details %>" required>
+                    <% if (error.details == undefined) { %>
+                    <% } else { %>
+                        <p class="alert-danger"> <%= error.details.msg %></p>
+                    <% } %>
+                </div>
+                <div class="form-group mx-sm-5">
+                    <label for="where">Where:</label>
+                    <input type="text" class="form-control" id="where" name="where" placeholder="where"
+                           value="<%= formData.where %>" required>
+                    <% if (error.where == undefined) { %>
+                    <% } else { %>
+                        <p class="alert-danger"> <%= error.where.msg %></p>
+                    <% } %>
+                </div>
+                <div class="form-group mx-sm-5">
+                    <label>When:</label>
+                    <input type="date" class="form-control" id="datepicker" name="when" value="<%= formData.when %>" required>
+                    <% if (error.when == undefined) { %>
+                    <% } else { %>
+                        <p class="alert-danger"> <%= error.when.msg %></p>
+                    <% } %>
+                </div>
+                <div class="form-group mx-sm-5">
+                    <label for="start_time">Start Time (24-hr format HH:MM):</label>
+                    <input type="time" class="form-control" id="start_time" name="start_time"
+                           value="<%= formData.start_time %>" required>
+                    <% if (error.start_time == undefined) { %>
+                    <% } else { %>
+                        <p class="alert-danger"> <%= error.start_time.msg %></p>
+                    <% } %>
+                </div>
+                <div class="form-group mx-sm-5">
+                    <label for="end_time">End Time (24-hr format HH:MM):</label>
+                    <input type="time" class="form-control" id="end_time" name="end_time"
+                           value="<%= formData.end_time %>" required>
+                    <% if (error.end_time == undefined) { %>
+                    <% } else { %>
+                        <p class="alert-danger"> <%= error.end_time.msg %></p>
+                    <% } %>
+                </div>
+                <p class="text-center"><button type="submit" class="btn btn-info">Create Connection</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs'); %>
+</body>
+</html>

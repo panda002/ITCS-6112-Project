@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>About</title>
+<body>
+    <% if(user == undefined) { %>
+        <%- include('partials/header_notloggedin.ejs'); -%>
+    <% } else { %>
+    <%- include('partials/header_loggedin'); -%>
+    <h6 class="col-6"> Welcome Back!! <%= user %></h6>
+    <% } %>
+
+<div id="container">
+    <div id="main">
+        <div class="text-center pt-5 my-1 font-italic">
+            <h1>About the Site</h1>
+            <p>
+                Find you taste in Sports and Dance by
+                clicking on the Start New Connection in the top right corner.
+            </p>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs'); %>
+</body>
+</html>

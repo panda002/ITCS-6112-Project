@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Home</title>
+<body>
+    <% if(user == undefined) { %>
+        <%- include('partials/header_notloggedin.ejs'); -%>
+    <% } else { %>
+    <%- include('partials/header_loggedin'); -%>
+    <h6 class="col-6"> Welcome Back!! <%= user %></h6>
+    <% } %>
+
+<div id="container">
+    <div id="main">
+        <div class="container">
+            <h2 class="text-center">May It Be Art, Sports, Dance or Games</h2>
+            <p class="text-center font-italic">
+                We have it all here <br>
+                Welcome to UNCC Connection Site.
+                <br>
+                Find you taste in Sports and Dance by clicking on the Connections in the top menu
+            <br>
+            If you want to create a new connection, then click on the Start New Connection item.
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs'); %>
+</body>
+</html>

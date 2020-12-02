@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Contact</title>
+<body>
+    <% if(user == undefined) { %>
+        <%- include('partials/header_notloggedin.ejs'); -%>
+    <% } else { %>
+    <%- include('partials/header_loggedin'); -%>
+    <h6 class="col-6"> Welcome Back!! <%= user %></h6>
+    <% } %>
+<div id="container">
+    <div id="main">
+        <div class="container font-italic pt-5">
+            <h1 class="text-center">Want to contact us?</h1>
+            <p class="text-center">
+                Techno Team<br>
+                University Terrace Drive<br>
+            </p>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs'); %>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Connections</title>
+<body>
+<% if(user == undefined) { %>
+    <%- include('partials/header_notloggedin.ejs'); -%>
+<% } else { %>
+    <%- include('partials/header_loggedin'); -%>
+<h6 class="col-6"> Welcome Back!! <%=user %></h6>
+<% } %>
+    <div id="container">
+        <div id="main">
+<div class="container p-2">
+    <% data.topic.forEach(element => { %>
+        <h4> <%= element %></h4>
+        <% data.connections.forEach(events => {%>
+        <%if(events.topic === element){%>
+            <ul class = "list-group">
+                <li class = "list-group-item p-2">
+                    <a class="text-left" href="/connection/<%= events.eventID%>"><%= events.details %></a>
+                </li>
+            </ul>
+                <% } %>
+            <% });%>
+        <% }); %>
+</div>
+        </div>
+    </div>
+    <%- include('partials/footer.ejs'); %>
+    </body>
+</html>

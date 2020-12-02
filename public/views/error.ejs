@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Error</title>
+<body>
+    <% if(user == undefined) { %>
+        <%- include('partials/header_notloggedin.ejs'); -%>
+    <% } else { %>
+    <%- include('partials/header_loggedin'); -%>
+    <% } %>
+<div id="container">
+    <div id="main">
+    <div class="text-center p-1 my-1">
+        <h1>You have entered an invalid Event ID. Kindly go to the connection page to find the correct one.</h1>
+    </div>
+    </div>
+</div>
+    <%- include('partials/footer.ejs'); %>
+</body>
+</html>
+
